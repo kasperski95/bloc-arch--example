@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { LedEvents } from '../blocs/led'
 import { useWeakBloc } from '../blocs/setup-blocs'
 
-export function LedClock() {
+export function ResetButton() {
   const ledBloc0Getter = useWeakBloc('led0')
   const ledBloc1Getter = useWeakBloc('led1')
   const ledBloc2Getter = useWeakBloc('led2')
