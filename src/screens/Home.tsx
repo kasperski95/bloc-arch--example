@@ -12,7 +12,7 @@ export function Home() {
 
   return (
     <Wrapper>
-      <Title>Click on any diod</Title>
+      <Title>Click on any diode</Title>
       <LedWrapper>
         <Led ledBloc={ledBloc0} />
         <Led ledBloc={ledBloc1} />
