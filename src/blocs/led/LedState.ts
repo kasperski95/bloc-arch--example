@@ -1,10 +1,6 @@
 import { BlocState } from '@bloc-arch/core'
 
-export abstract class LedState extends BlocState {
-  constructor(public label: String) {
-    super()
-  }
-}
+export abstract class LedState extends BlocState {}
 
 export class Off extends LedState {}
 

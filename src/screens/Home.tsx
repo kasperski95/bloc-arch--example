@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useBloc } from '../blocs/setup-blocs'
 import { Led } from '../components/Led'
+import { LedClock } from '../components/LedClock'
 
 export function Home() {
   const ledBloc3 = useBloc('led3')()
@@ -24,6 +25,7 @@ export function Home() {
         <Led ledBloc={ledBloc1} />
         <Led ledBloc={ledBloc0} />
       </LedWrapper>
+      <LedClock />
     </Wrapper>
   )
 }

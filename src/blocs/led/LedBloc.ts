@@ -3,19 +3,21 @@ import * as LedEvents from './LedEvent'
 import * as LedStates from './LedState'
 
 export class LedBloc extends Bloc<LedEvents.LedEvent, LedStates.LedState> {
-  constructor(private label: String, private nextLedBloc?: LedBloc) {
-    super(new LedStates.Off(label))
+  constructor(public label: String, private nextLedBloc?: LedBloc) {
+    super(new LedStates.Off())
   }
 
   async *mapEventToState(event: LedEvents.LedEvent) {
     if (event instanceof LedEvents.Toggle) {
       if (this.getState() instanceof LedStates.Off) {
-        yield new LedStates.On(this.label)
+        yield new LedStates.On()
       } else {
-        yield new LedStates.Off(this.label)
+        yield new LedStates.Off()
         await new Promise((resolve) => setTimeout(resolve, 100))
         this.nextLedBloc?.dispatch(new LedEvents.Toggle())
       }
+    } else if (event instanceof LedEvents.TurnOff) {
+      yield new LedStates.Off()
     }
   }
 }

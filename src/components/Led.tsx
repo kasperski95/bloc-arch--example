@@ -12,24 +12,27 @@ export function Led(props: { ledBloc: LedBloc }) {
     >
       <BlocBuilder
         bloc={props.ledBloc}
-        renderer={useBlocRenderProp((state) => {
-          if (state instanceof LedStates.On) {
-            return (
-              <>
-                <Container isOn={true} />
-                <Label>{state.label}</Label>
-              </>
-            )
-          } else if (state instanceof LedStates.Off) {
-            return (
-              <>
-                <Container isOn={false} />
-                <Label>{state.label}</Label>
-              </>
-            )
-          }
-          return <Container isOn={false} />
-        }, [])}
+        renderer={useBlocRenderProp(
+          (state) => {
+            if (state instanceof LedStates.On) {
+              return (
+                <>
+                  <Container isOn={true} />
+                  <Label>{props.ledBloc.label}</Label>
+                </>
+              )
+            } else if (state instanceof LedStates.Off) {
+              return (
+                <>
+                  <Container isOn={false} />
+                  <Label>{props.ledBloc.label}</Label>
+                </>
+              )
+            }
+            return <Container isOn={false} />
+          },
+          [props.ledBloc]
+        )}
       />
     </div>
   )
