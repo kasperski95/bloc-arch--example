@@ -26,7 +26,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "bloc": "bloc --path=./src/blocs/ --typescript"
+    "bloc": "bloc --path=./src/blocs/ --typescript",
+    "deploy": "heroku git:remote -a bloc-arch--example"
   },
   "eslintConfig": {
     "extends": [
