@@ -14,9 +14,19 @@ export function Led(props: { ledBloc: LedBloc }) {
         bloc={props.ledBloc}
         renderer={useBlocRenderProp((state) => {
           if (state instanceof LedStates.On) {
-            return <Container isOn={true} />
+            return (
+              <>
+                <Container isOn={true} />
+                <Label>{state.label}</Label>
+              </>
+            )
           } else if (state instanceof LedStates.Off) {
-            return <Container isOn={false} />
+            return (
+              <>
+                <Container isOn={false} />
+                <Label>{state.label}</Label>
+              </>
+            )
           }
           return <Container isOn={false} />
         }, [])}
@@ -34,4 +44,11 @@ const Container = styled.div<{ isOn: boolean }>`
       : 'radial-gradient(rgba(150, 0, 0, 0.4), rgba(150, 0, 0, 0.8))'};
   border-radius: 50%;
   margin: 0.5rem;
+  cursor: pointer;
+`
+
+const Label = styled.div`
+  color: gray;
+  font-weight: bold;
+  text-align: center;
 `

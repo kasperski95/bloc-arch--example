@@ -4,7 +4,8 @@ import { useBloc } from '../blocs/setup-blocs'
 import { Led } from '../components/Led'
 
 export function Home() {
-  const ledBloc2 = useBloc('led2')()
+  const ledBloc3 = useBloc('led3')()
+  const ledBloc2 = useBloc('led2')(ledBloc3)
   const ledBloc1 = useBloc('led1')(ledBloc2)
   const ledBloc0 = useBloc('led0')(ledBloc1)
 
@@ -15,6 +16,13 @@ export function Home() {
         <Led ledBloc={ledBloc0} />
         <Led ledBloc={ledBloc1} />
         <Led ledBloc={ledBloc2} />
+        <Led ledBloc={ledBloc3} />
+      </LedWrapper>
+      <LedWrapper>
+        <Led ledBloc={ledBloc3} />
+        <Led ledBloc={ledBloc2} />
+        <Led ledBloc={ledBloc1} />
+        <Led ledBloc={ledBloc0} />
       </LedWrapper>
     </Wrapper>
   )
@@ -32,4 +40,5 @@ const Title = styled.h1`
 
 const LedWrapper = styled.div`
   display: flex;
+  margin-bottom: 1rem;
 `
