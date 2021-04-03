@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `
 
 const Title = styled.h1`
-  color: white;
+  color: black;
 `
 
 const LedWrapper = styled.div`
